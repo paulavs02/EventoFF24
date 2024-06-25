@@ -1,3 +1,65 @@
+const { createApp } = Vue;
+
+createApp({
+  data() {
+    return {
+      url: "https://paulavs02.github.io/FFcharactersApi/character.json",
+      datos: [],
+      error: false,
+    };
+  },
+  methods: {
+    fetchData(url) {
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          this.datos = this.obtenerPersonajesAleatorios(4, data.characters); // Obtener 3 personajes aleatorios
+        })
+        .catch(error => {
+          console.log("Error: " + error);
+          this.error = true;
+        });
+    },
+    obtenerPersonajesAleatorios(cantidadPersonajes, datos) {
+      const personajesAleatorios = [];
+      const indicesSeleccionados = new Set();
+      
+      while (indicesSeleccionados.size < cantidadPersonajes) {
+        const indice = Math.floor(Math.random() * datos.length);
+        if (!indicesSeleccionados.has(indice)) {
+          indicesSeleccionados.add(indice);
+          personajesAleatorios.push(datos[indice]);
+        }
+      }
+
+      return personajesAleatorios;
+    },
+    obtenerClaseModo(modo) {
+        if (modo === "Activo") return "M-tag1";
+        else if (modo === "Pasivo") return "M-tag2";
+        else return ""; // muestra en personaje sin modo.
+    },
+    
+    obtenerClaseEstrategia(estrategia) {
+      switch (estrategia) {
+        case "Supervivencia":
+          return "E-tag1";
+        case "Ataque":
+          return "E-tag2";
+        case "Información":
+          return "E-tag3";
+        case "Sinergia":
+          return "E-tag4";
+        default:
+          return ""; // cuando el personaje no tenga estrategia.
+      }
+    },
+  },
+  created() {
+    this.fetchData(this.url);
+  },
+}).mount("#app");
+
 /* pop up */
 
 

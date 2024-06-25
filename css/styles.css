@@ -28,6 +28,7 @@ body {
   width: 100vw;
   justify-content: center;
   align-self: center;
+  color: #c3e6cb;
   background-color: rgba(0, 0, 0, 0.96);
   animation-name: cambiarColor;
   animation-duration: 2s;
@@ -36,44 +37,111 @@ body {
 }
 @keyframes cambiarColor {
   0% {
-     background-color: rgb(193, 248, 84);   /*color1*/
+     background-color: #74914A;   /*color1*/
   }  
   50% {
-       background-color: #6efc35;   /*color2 */
+       background-color: #8ABB41;   /*color2 */
   }  
   100% {
-       background-color: rgb(207, 250, 76);   /*color3 */
+       background-color:#383C32;   /*color3 */
   }  
 }
 /* Tarjetas de Jugador */
-.card-custom {
+.d-flex {
   display: flex;
-  max-width: 280px;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  align-self: center;
+  align-self:auto;
 }
 
-/* Etiquetas de Jugador */
-.jugador-tag {
-  display: inline-block;
-  font-size: 12px;
-  padding: 4px;
-  border-radius: 20%;
+.charcard {
+  max-width: 280px;
+  border: 3px solid rgba(48, 139, 17, 0.703);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  
 }
-.jugador-tag1 {
-  background-color: #fffb079d;
+
+.charcard-img-container {
+  position: relative;
 }
-.jugador-tag2 {
-  background-color: #4cb8b57d;
-  color: #fff;
+
+.img-icono {
+  position: absolute;
+  top: 0;
+  /* arriba */
+  right: 0;
+  /* derecha */
+  width: 35px;
+  /* ancho */
+  height: 35px;
+  /*  altura */
 }
-.jugador-tag3 {
-  background-color: #2989e96e;
-  color: #fff;
+
+.img-foto {
+  width: 100%;
 }
-.jugador-tag4 {
-  background-color: #de36475b;
-  color: #fff;
+
+.name {
+  font-weight: bold;
+}
+
+.details p {
+  margin: 5px 0;
+}
+
+/* Modo de habilidad */
+.M-tag1 {
+  background-color: #fb69696d;
+  color: #ffffff;
+  padding: 5px;
+  border-radius: 3px;
+  display: block;
+  margin: 2px 0;
+}
+
+.M-tag2 {
+  background-color: #7571ff6d;
+  color: #ffffff;
+  padding: 5px;
+  border-radius: 3px;
+  display: block;
+  margin: 2px 0;
+}
+
+/* Tipos de estrategia */
+.E-tag1 {
+  background-color: #f5dd63;
+  color: #ffffff;
+  border-radius: 3px;
+  display: block;
+  margin: 2px 0;
+}
+
+.E-tag2 {
+  background-color: #fa6565b3;
+  color: #ffffff;
+  border-radius: 3px;
+  display: block;
+  margin: 2px 0;
+}
+
+.E-tag3 {
+  background-color: #6669fae1;
+  color: #ffffff;
+  border-radius: 3px;
+  display: block;
+  margin: 2px 0;
+}
+
+.E-tag4 {
+  background-color: #91fd77bf;
+  color: #ffffff;
+  border-radius: 3px;
+  display: block;
+  margin: 2px 0;
 }
 
 /* Imágenes */

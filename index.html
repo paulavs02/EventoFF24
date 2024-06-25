@@ -99,59 +99,46 @@
    
 
     <!-- PERSONAJES -->
+    <div class="favs">
+      <h2 class="text-center">Los favoritos</h2>
+    </div>
     <section id="personajes" class="mt-4 mb-4">
-      <div class="row align-items-center justify-content-center">
-        <div class="favs">
-          <h2 class="text-center">Los favoritos</h2>
-        </div>
-        <div class="col-auto">
-          <div class="card card-custom mb-4">
-            <img src="./images/CharacterAlok.png" class="card-img-top" alt="alok">
-            <div class="card-body">
-              <h6 class="jugador-tag1">Activa</h6>
-              <h6 class="jugador-tag2">Survival</h6>
-              <h5 class="card-title">Alok</h5>
-              <p class="card-text">La música y las presentaciones del DJ Alok poseen una energía y un alma únicas que pueden estimular los sentimientos y las emociones del ser más íntimo de cada persona. Alok comparte su habilidad con sus compañeros. </p>
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+              
+          <div id="app">
+            <div v-if="error">Se produjo un error - Intente luego.</div>
+            <div v-else class="row">
+              <div v-for="elemento in datos" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card h-100">
+                  <div class="card-body">
+                    <div class="charcard-img-container">
+                      <img :src="elemento.foto" :alt="elemento.nombre" class="card-img-top img-foto img-fluid">
+                      <img :src="elemento.icono" :alt="elemento.nombre" class="card-img-overlay img-icono img-fluid">
+                    </div>
+                    <div class="name">
+                      <h5 class="card-title">{{ elemento.nombre }}</h5>
+                    </div>
+                    <div class="details">
+                      <p :class="obtenerClaseModo(elemento.modo)">{{ elemento.modo }}</p>
+                      <p :class="obtenerClaseEstrategia(elemento.estrategia)">{{ elemento.estrategia }}</p>
+                      <p class="card-text">{{ elemento.habilidad }}</p>
+                      <p class="card-text">{{ elemento.detalle }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-auto">
-          <div class="card card-custom mb-4">
-            <img src="./images/CharacterSonia.png" class="card-img-top" alt="sonia">
-            <div class="card-body">
-              <h6 class="jugador-tag3">Pasiva</h6>
-              <h6 class="jugador-tag2">Survival</h6>
-              <h5 class="card-title">Sonia</h5>
-              <p class="card-text">Sonia es una nanocientífica genéticamente modificada con una inteligencia y experiencia excepcionales en nanotecnología. Al recibir daño fatal, entra en un estado invulnerable e inmóvil durante 0,4 segundos.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-auto">
-          <div class="card card-custom mb-4">
-            <img src="./images/CharacterCr7.png" class="card-img-top" alt="cr7">
-            <div class="card-body">
-              <h6 class="jugador-tag3">Pasiva</h6>
-              <h6 class="jugador-tag4">Cazador</h6>
-              <h5 class="card-title">Chrono</h5>
-              <p class="card-text">Chrono proviene de un universo paralelo donde la ciencia y la tecnología están mucho más avanzadas. Crea un campo de fuerza que bloquea el daño. No puede atacar enemigos externos desde dentro del campo.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-auto">
-          <div class="card card-custom mb-4">
-            <img src="./images/CharacterLuna.png" class="card-img-top" alt="sonia">
-            <div class="card-body">
-              <h6 class="jugador-tag1">Activa</h6>
-              <h6 class="jugador-tag4">Cazador</h6>
-              <h5 class="card-title">Sonia</h5>
-              <p class="card-text">Luna es una lider indiscutible. Su habilidad inicialmente aumenta la velocidad de disparo. Cuando el usuario golpea a un enemigo, la velocidad de disparo se convertirá en un impulso de velocidad de movimiento.</p>
-            </div>
-          </div>
+    
         </div>
       </div>
     </section>
+    
   
     <!-- /PERSONAJES -->
+  
+    
     <!-- TRANSMISION --    
      <section id="lugarfecha" class="mt-4 mb-4">
       <div class="row">
@@ -282,7 +269,8 @@
     </footer>
     <!-- /FOOTER -->
 
-   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
    <script defer src="./js/javascript.js"></script>
